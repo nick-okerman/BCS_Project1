@@ -2,11 +2,16 @@
 
 The files in this repository were used to configure the network depicted below.
 
-!(Diagrams/Azure_Cloud_Topology.jpg)
+![](Diagrams/Azure_Cloud_Topology.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the [Ansible] file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  - _[Filebeat Playbook](Ansible/filebeat-playbook.yml)_
+  - _[Filebeat Configuration](Ansible/filebeat-config.yml)_
+  - _[Metricbeat Playbook](Ansible/metricbeat-config.yml)_
+  - _[Ansible Hosts](Ansible/hosts)_
+  - _[Ansible Configuration](Ansible/ansible.cfg)_
+  - _[Elk Stack Installation](Ansible/elktest.yml)_
 
 This document contains the following details:
 - Description of the Topology
@@ -21,10 +26,10 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly accessible, in addition to restricting traffic to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - _TODO: What does Filebeat watch for?_
 - _TODO: What does Metricbeat record?_
 
@@ -95,4 +100,4 @@ _TODO: Answer the following questions to fill in the blanks:_
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-[Ansible]: ../Ansible/
+[Ansible]: Ansible/
