@@ -2,13 +2,11 @@
 
 The files in this repository were used to configure the network depicted below.
 
-<center>
 <img src="Diagrams/Azure_Cloud_Topology.png" width="600"/>
-</center>
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
-  - [My First Playbook](Ansible/pentest.yml)
+  - [Ansible Docker Playbook](Ansible/pentest.yml)
   - [Ansible Hosts](Ansible/hosts)
   - [Ansible Configuration](Ansible/ansible.cfg)
   - [Filebeat Configuration](Ansible/filebeat-config.yml)
@@ -16,14 +14,14 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - [Metricbeat Playbook](Ansible/metricbeat-config.yml)
   - [Elk Stack Installation](Ansible/elktest.yml)
 
-
+***
 ### This document contains the following details:
 
 - [Description of the Topology](#description-of-the-topology)
 - [Access Policies](#access-policies)
 - [ELK Configuration](#elk-configuration)
-  - [Beats in Use](#target-machines-&-beats)
-  - [Machines Being Monitored](#target-machines-&-beats)
+  - [Beats in Use](#target-machines-and-beats)
+  - [Machines Being Monitored](#target-machines-and-beats)
 - [How to Use the Ansible Build](#using-the-playbook)
 
 
@@ -31,8 +29,13 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly accessible, in addition to restricting traffic to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network.
+- What aspect of security do load balancers protect?
+  - _Answer:_ Load balancers protect server traffic to ensure no single server becomes overloaded with too much demand. They also protect the availability and accessibility of the data on the servers. If a single server becomes compromised or goes down, the load balancer can redirect the traffic to another server to protect the availability.
+- What is the advantage of a jump box?
+  - _Answer:_ Jump box servers or jump box virtual machines (VM) create a separation between the user and the privileged network which improves security. They also improve productivity by allowing the Security Administrator access to the select networks, server, or VMs through one portal.
+  ***
+  ***
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - _TODO: What does Filebeat watch for?_
@@ -80,7 +83,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
 
-### Target Machines & Beats
+### Target Machines and Beats
 This ELK server is configured to monitor the following machines:
 - _TODO: List the IP addresses of the machines you are monitoring_
 
