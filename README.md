@@ -2,12 +2,8 @@
 
 The files in this repository were used to configure the network depicted below.
 
-<<<<<<< HEAD
 <img src="Diagrams/Azure_Cloud_Topology.png" width="600"/>
 ![](Diagrams/Azure_Cloud_Topology.png)
-=======
-[[Diagrams/Azure_Cloud_Topology.png|height=550px width=600px]]
->>>>>>> 455d588691bc36c8871d2815b923ad0762a3504b
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
