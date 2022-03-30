@@ -2,8 +2,9 @@
 
 The files in this repository were used to configure the network depicted below.
 
+<center>
 <img src="Diagrams/Azure_Cloud_Topology.png" width="600"/>
-![](Diagrams/Azure_Cloud_Topology.png)
+</center>
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -18,12 +19,12 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 ### This document contains the following details:
 
-- Description of the Topology
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+- [Description of the Topology](#description-of-the-topology)
+- [Access Policies](#access-policies)
+- [ELK Configuration](#elk-configuration)
+  - [Beats in Use](#target-machines-&-beats)
+  - [Machines Being Monitored](#target-machines-&-beats)
+- [How to Use the Ansible Build](#using-the-playbook)
 
 
 ### Description of the Topology
