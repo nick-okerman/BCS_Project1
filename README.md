@@ -2,9 +2,9 @@
 
 The files in this repository were used to configure the network depicted below.
 
-(Diagrams/Azure_Cloud_Topology.png)
+![alt text](https://github.com/nick-okerman/BCS_Project1/Diagrams/Azure_Cloud_Topology.png "Network Topology")
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the [Ansible] file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
@@ -94,3 +94,5 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+[Ansible]: ../Ansible/
