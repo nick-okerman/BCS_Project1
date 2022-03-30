@@ -2,18 +2,21 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![](Diagrams/Azure_Cloud_Topology.png)
+![](Diagrams/Azure_Cloud_Topology.png =550x600)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
-  - [Filebeat Playbook](Ansible/filebeat-playbook.yml)
-  - [Filebeat Configuration](Ansible/filebeat-config.yml)
-  - [Metricbeat Playbook](Ansible/metricbeat-config.yml)
+  - [My First Playbook](Ansible/pentest.yml)
   - [Ansible Hosts](Ansible/hosts)
   - [Ansible Configuration](Ansible/ansible.cfg)
+  - [Filebeat Configuration](Ansible/filebeat-config.yml)
+  - [Filebeat Playbook](Ansible/filebeat-playbook.yml)
+  - [Metricbeat Playbook](Ansible/metricbeat-config.yml)
   - [Elk Stack Installation](Ansible/elktest.yml)
 
-This document contains the following details:
+
+### This document contains the following details:
+
 - Description of the Topology
 - Access Policies
 - ELK Configuration
