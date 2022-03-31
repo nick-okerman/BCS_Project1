@@ -41,7 +41,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - What does Filebeat watch for?
 >  - _Answer:_ Filebeat watches for log files or locations that are specific to the users choice.
 
-- TODO: What does Metricbeat record?
+- What does Metricbeat record?
 >  - _Answer:_ Metricbeat records the metrics and stats it has collected and ships them to the output that is specified by the user.
 
 #### The configuration details of each machine may be found below.
