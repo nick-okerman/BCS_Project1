@@ -61,7 +61,8 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - Add whitelisted IP addresses
-> - _Answer:_ Current public IP of my host computer through port 22.
+> - _Answer:_ Current public IP of host computer through port 22.
+
 
 Machines within the network can only be accessed by ssh into their corresponding private IP addresses.
 - Which machine did you allow to access your ELK VM?
@@ -81,19 +82,64 @@ A summary of the access policies in place can be found in the table below.
 | ELK Sever         | No                  | 10.1.0.4 // ssh 22            |
 | Kibana Interface  | Yes \(restricted\)  | Public IP of ELK // port 5601 |
 
-***
-***
-***
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- What is the main advantage of automating configuration with Ansible?
+> - _Answer:_ The main advantage of automating configuration with Ansible is that it makes it easy to run each playbook on different groups of machines. By writing a single playbook with only the tasks required, Ansible will automate the process and configure the system.  
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+
+```
+- name: Config Web VM with Docker
+  hosts: webservers
+  become: true
+  tasks:
+```
+
+```
+- name: docker.io
+  apt:
+    update_cache: yes
+    name: docker.io
+    state: present
+```
+
+```
+- name: install pip3
+  apt:
+    name: python3-pip
+    state: present
+```
+
+```
+- name: install docker python module
+  pip:
+    name: docker
+    state: present
+```
+
+```
+- name: download and launch a docker web container
+  docker_container:
+    name: dvwa
+    image: cyberxsecurity/dvwa
+    state: started
+    restart_policy: always
+    published_ports: 80:80
+```
+
+```
+- name: Enable docker service
+  systemd:
+    name: docker
+    enabled: yes
+```
+
+***
+***
+***
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
