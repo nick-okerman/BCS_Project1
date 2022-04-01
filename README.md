@@ -91,50 +91,50 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 
-```
-- name: Config Web VM with Docker
-  hosts: webservers
-  become: true
-  tasks:
+>```yaml
+>- name: Config Web VM with Docker
+>  hosts: webservers
+>  become: true
+>  tasks:
+>```
+
+```yaml
+  - name: docker.io
+    apt:
+      update_cache: yes
+      name: docker.io
+      state: present
 ```
 
-```
-- name: docker.io
-  apt:
-    update_cache: yes
-    name: docker.io
-    state: present
-```
-
-```
-- name: install pip3
-  apt:
-    name: python3-pip
-    state: present
+```yaml
+  - name: install pip3
+    apt:
+      name: python3-pip
+      state: present
 ```
 
-```
-- name: install docker python module
-  pip:
-    name: docker
-    state: present
-```
-
-```
-- name: download and launch a docker web container
-  docker_container:
-    name: dvwa
-    image: cyberxsecurity/dvwa
-    state: started
-    restart_policy: always
-    published_ports: 80:80
+```yaml
+  - name: install docker python module
+    pip:
+      name: docker
+      state: present
 ```
 
+```yaml
+  - name: download and launch a docker web container
+    docker_container:
+      name: dvwa
+      image: cyberxsecurity/dvwa
+      state: started
+      restart_policy: always
+      published_ports: 80:80
 ```
-- name: Enable docker service
-  systemd:
-    name: docker
-    enabled: yes
+
+```yaml
+  - name: Enable docker service
+    systemd:
+      name: docker
+      enabled: yes
 ```
 
 ***
