@@ -89,53 +89,16 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - What is the main advantage of automating configuration with Ansible?
 > - _Answer:_ The main advantage of automating configuration with Ansible is that it makes it easy to run each playbook on different groups of machines. By writing a single playbook with only the tasks required, Ansible will automate the process and configure the system.  
 
-The playbook implements the following tasks:
+The ELK playbook implements the following tasks:
 
+- The top of the YAML file \(playbook\) specifies the [hosts](Ansible/hosts) machines and the remote user. 
 >```yaml
->- name: Config Web VM with Docker
->  hosts: webservers
+>- name: Config ELK Server VM with Docker
+>  hosts: elk
+>  remote_user: azadmin
 >  become: true
 >  tasks:
 >```
-
-```yaml
-  - name: docker.io
-    apt:
-      update_cache: yes
-      name: docker.io
-      state: present
-```
-
-```yaml
-  - name: install pip3
-    apt:
-      name: python3-pip
-      state: present
-```
-
-```yaml
-  - name: install docker python module
-    pip:
-      name: docker
-      state: present
-```
-
-```yaml
-  - name: download and launch a docker web container
-    docker_container:
-      name: dvwa
-      image: cyberxsecurity/dvwa
-      state: started
-      restart_policy: always
-      published_ports: 80:80
-```
-
-```yaml
-  - name: Enable docker service
-    systemd:
-      name: docker
-      enabled: yes
-```
 
 ***
 ***
@@ -171,3 +134,59 @@ _TODO: Answer the following questions to fill in the blanks:_
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 [Ansible]: Ansible/
+
+***
+***
+***
+
+- The top of the YAML file \(playbook\) specifies which [hosts](Ansible/hosts) the playbook will be _talking_ to.
+>```yaml
+>- name: Config Web VM with Docker
+>  hosts: webservers
+>  become: true
+>  tasks:
+>```
+
+- This task installs docker.io using the Advanced Package Tool \(apt\).
+>```yaml
+>  - name: docker.io
+>    apt:
+>      update_cache: yes
+>      name: docker.io
+>      state: present
+>```
+
+- This task installs python3-pip \(pip3\) using the `apt` command. This is a package manager that enables the installation of third party software not found in the Python standard library.
+>```yaml
+>  - name: install pip3
+>    apt:
+>      name: python3-pip
+>      state: present
+>```
+
+- This task installs docker using the `pip` command.
+>```yaml
+>  - name: install docker python module
+>    pip:
+>      name: docker
+>      state: present
+>```
+
+- This task downloads the D*mn Vulnerable Web App \(DVWA\) through the cyberxsecurity docker hub. Port 80 will be set to open to access DVWA through the local host.
+>```yaml
+>  - name: download and launch a docker web container
+>    docker_container:
+>      name: dvwa
+>      image: cyberxsecurity/dvwa
+>      state: started
+>      restart_policy: always
+>      published_ports: 80:80
+>```
+
+- This task ensures that docker will be enabled when the system starts.
+>```yaml
+>  - name: Enable docker service
+>    systemd:
+>      name: docker
+>      enabled: yes
+>```
