@@ -56,6 +56,8 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 ***
 ***
+***
+
 
 ### Access Policies
 
@@ -63,22 +65,22 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - Add whitelisted IP addresses
-> - _Answer:_
+> - _Answer:_ Current public IP of my host computer through port 22.
 
 Machines within the network can only be accessed by ssh into their corresponding private IP addresses.
 - Which machine did you allow to access your ELK VM?
-> - _Answer:_
+> - _Answer:_ The machine allowed access to my ELK Sever is the container found on the Jump Box. Once the container is started and attached, an ssh can be established to the VMs.
 
 - What was its IP address?
-> - _Answer:_
+> - _Answer:_ 20.228.188.232
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name     | Publicly Accessible | Allowed IP Addresses          |
+|----------|---------------------|-------------------------------|
+| Jump Box | Yes                 | Public IP of Host computer    |
+|          |                     |                               |
+|          |                     |                               |
 
 ### Elk Configuration
 
