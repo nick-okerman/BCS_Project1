@@ -56,8 +56,6 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 ***
 ***
-***
-
 
 ### Access Policies
 
