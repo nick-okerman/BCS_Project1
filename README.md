@@ -54,8 +54,6 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 | Web 3      | DWVA          | 10.0.0.6                   | Linux            |
 | ELK Server | Kibana Access | 10.1.0.4                   | Linux            |
 
-***
-***
 
 ### Access Policies
 
@@ -74,11 +72,18 @@ Machines within the network can only be accessed by ssh into their corresponding
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses          |
-|----------|---------------------|-------------------------------|
-| Jump Box | Yes                 | Public IP of Host computer    |
-|          |                     |                               |
-|          |                     |                               |
+| Name              | Publicly Accessible | Allowed IP Addresses          |
+|-------------------|---------------------|-------------------------------|
+| Jump Box          | Yes                 | Public IP of Host // ssh 22   |
+| Web 1             | No                  | 10.0.0.5 // ssh 22            |
+| Web 2             | No                  | 10.0.0.7 // ssh 22            |
+| Web 3             | No                  | 10.0.0.6 // ssh 22            |
+| ELK Sever         | No                  | 10.1.0.4 // ssh 22            |
+| Kibana Interface  | Yes \(restricted\)  | Public IP of ELK // port 5601 |
+
+***
+***
+***
 
 ### Elk Configuration
 
