@@ -144,9 +144,9 @@ The docker playbook consists of the following tasks:
 - The top of the YAML file \(playbook\) specifies which [hosts](Ansible/hosts) the playbook will be _talking_ to.
 >```yaml
 >- name: Config Web VM with Docker
->  hosts: webservers
->  become: true
->  tasks:
+>    hosts: webservers
+>    become: true
+>    tasks:
 >```
 
 - This task installs docker.io using the Advanced Package Tool \(apt\).
