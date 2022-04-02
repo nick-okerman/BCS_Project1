@@ -91,13 +91,13 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The ELK playbook implements the following tasks:
 
-- The top of the YAML file \(playbook\) specifies the [hosts](Ansible/hosts) machines and the remote user. 
+- The top of the YAML file \(playbook\) specifies the [hosts](Ansible/hosts) machines and the remote user.
 >```yaml
 >- name: Config ELK Server VM with Docker
->  hosts: elk
->  remote_user: azadmin
->  become: true
->  tasks:
+>    hosts: elk
+>    remote_user: azadmin
+>    become: true
+>    tasks:
 >```
 
 ***
@@ -138,6 +138,8 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 ***
 ***
 ***
+
+The docker playbook consists of the following tasks:
 
 - The top of the YAML file \(playbook\) specifies which [hosts](Ansible/hosts) the playbook will be _talking_ to.
 >```yaml
