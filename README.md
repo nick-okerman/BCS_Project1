@@ -145,16 +145,16 @@ The ELK playbook implements the following tasks:
 
 - This task downloads the ELK Container through the docker hub. Ports 5601, 9200, and 5044 will be set to open to access the ELK server through the local host.
 >```yaml
-  - name: download and launch a docker elk container
-    docker_container:
-      name: elk
-      image: sebp/elk:761
-      state: started
-      restart_policy: always
-      published_ports:
-        - 5601:5601
-        - 9200:9200
-        - 5044:5044
+>  - name: download and launch a docker elk container
+>    docker_container:
+>      name: elk
+>      image: sebp/elk:761
+>      state: started
+>      restart_policy: always
+>      published_ports:
+>        - 5601:5601
+>        - 9200:9200
+>        - 5044:5044
 >```
 
 - This task ensures that docker will be enabled when the system starts.
