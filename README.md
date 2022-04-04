@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Network Topology _without_ ELK Stack](Diagrams/Azure_Cloud_Topology.png) \| [Network Topology _with_ ELK Stack](???)
+[Network Topology _without_ ELK Stack](Diagrams/Network_Topology.png) \| [Network Topology _with_ ELK Stack](???)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -100,6 +100,71 @@ The ELK playbook implements the following tasks:
 >    tasks:
 >```
 
+- This task installs docker.io using the Advanced Package Tool \(apt\).
+>```yaml
+>  - name: Install docker.io
+>    apt:
+>      update_cache: yes
+>      force_apt_get: yes
+>      name: docker.io
+>      state: present
+>```
+
+- This task installs python3-pip \(pip3\) using the `apt` command. This is a package manager that enables the installation of third party software not found in the Python standard library.
+>```yaml
+>  - name: Install python3-pip
+>    apt:
+>      force_apt_get: yes
+>      name: python3-pip
+>      state: present
+>```
+
+- This task installs docker using the `pip` command.
+>```yaml
+>  - name: Install Docker module
+>    pip:
+>      name: docker
+>      state: present
+>```
+
+- This task increases the virtual system memory available on the machine.
+>```yaml
+>  - name: Increase virtual memory
+>    command: sysctl -w vm.max_map_count=262144
+>```
+
+- This task takes the previous and ensures that the memory is used.
+>```yaml
+>  - name: Use more memory
+>    sysctl:
+>      name: vm.max_map_count
+>      value: '262144'
+>      state: present
+>      reload: yes
+>```
+
+- This task downloads the ELK Container through the docker hub. Ports 5601, 9200, and 5044 will be set to open to access the ELK server through the local host.
+>```yaml
+  - name: download and launch a docker elk container
+    docker_container:
+      name: elk
+      image: sebp/elk:761
+      state: started
+      restart_policy: always
+      published_ports:
+        - 5601:5601
+        - 9200:9200
+        - 5044:5044
+>```
+
+- This task ensures that docker will be enabled when the system starts.
+>```yaml
+>  - name: Enable service docker on boot
+>    systemd:
+>      name: docker
+>      enabled: yes
+>```
+
 ***
 ***
 ***
@@ -132,63 +197,3 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-
-[Ansible]: Ansible/
-
-***
-***
-***
-
-The docker playbook consists of the following tasks:
-
-- The top of the YAML file \(playbook\) specifies which [hosts](Ansible/hosts) the playbook will be _talking_ to.
->```yaml
->- name: Config Web VM with Docker
->    hosts: webservers
->    become: true
->    tasks:
->```
-
-- This task installs docker.io using the Advanced Package Tool \(apt\).
->```yaml
->  - name: docker.io
->    apt:
->      update_cache: yes
->      name: docker.io
->      state: present
->```
-
-- This task installs python3-pip \(pip3\) using the `apt` command. This is a package manager that enables the installation of third party software not found in the Python standard library.
->```yaml
->  - name: install pip3
->    apt:
->      name: python3-pip
->      state: present
->```
-
-- This task installs docker using the `pip` command.
->```yaml
->  - name: install docker python module
->    pip:
->      name: docker
->      state: present
->```
-
-- This task downloads the D*mn Vulnerable Web App \(DVWA\) through the cyberxsecurity docker hub. Port 80 will be set to open to access DVWA through the local host.
->```yaml
->  - name: download and launch a docker web container
->    docker_container:
->      name: dvwa
->      image: cyberxsecurity/dvwa
->      state: started
->      restart_policy: always
->      published_ports: 80:80
->```
-
-- This task ensures that docker will be enabled when the system starts.
->```yaml
->  - name: Enable docker service
->    systemd:
->      name: docker
->      enabled: yes
->```
