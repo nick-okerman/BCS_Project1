@@ -165,9 +165,6 @@ The ELK playbook implements the following tasks:
 >      enabled: yes
 >```
 
-***
-***
-***
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -175,21 +172,32 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines and Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- List the IP addresses of the machines you are monitoring
+> - _Answer:_
+>    - Web1: 10.0.0.5
+>    - Web2: 10.0.0.7
+>    - Web3: 10.0.0.6
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Specify which Beats you successfully installed
+> - _Answer:_ Filebeat and Metricbeat were installed on the ELK Server to collect log data and metrics from Web1, Web2, and Web3.
+
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
+> - _Answer:_ Filebeat collect log data, events, and files then forwards them to a centralized area like Logstash. For example, Filebeat can collect wifi logs on the network and send these logs to Logstash for review. Metricbeat collects and ships various system and service metrics to a centralized area. The system memory or cpu are examples of these metrics.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
+- Copy the [Elk Stack File](Ansible/elktest.yml) to `/etc/ansible`.
+- Update the [Ansible Hosts](Ansible/hosts) file to include the private IP address of the server.
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
+
+***
+***
+***
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
