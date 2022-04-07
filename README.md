@@ -168,7 +168,7 @@ The ELK playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Docker_PS](Diagrams/Docker_PS.ong)
+![Docker_PS](Diagrams/Docker_PS.png)
 
 ### Target Machines and Beats
 This ELK server is configured to monitor the following machines:
@@ -219,7 +219,7 @@ SSH into the control node and follow the steps below:
 >```
 
 - _Which URL do you navigate to in order to check that the ELK server is running?
-> - _Answer:_ `http://\[your.VM.IP\]:5601/app/kibana`
+> - _Answer:_ `http://[your.VM.IP]:5601/app/kibana`
 
 Provide the specific commands the user will need to run to download the playbook, update the files, etc.
 
