@@ -25,6 +25,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - [Machines Being Monitored](#target-machines-and-beats)
 - [How to Use the Ansible Build](#using-the-playbook)
 
+***
 
 ### Description of the Topology
 
@@ -44,6 +45,8 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - What does Metricbeat record?
 >  - _Answer:_ Metricbeat records the metrics and stats it has collected and ships them to the output that is specified by the user.
 
+***
+
 #### The configuration details of each machine may be found below.
 
 | Name       | Function      | IP Address                 | Operating System |
@@ -54,6 +57,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 | Web 3      | DWVA          | 10.0.0.6                   | Linux            |
 | ELK Server | Kibana Access | 10.1.0.4                   | Linux            |
 
+***
 
 ### Access Policies
 
@@ -82,6 +86,7 @@ A summary of the access policies in place can be found in the table below.
 | ELK Sever         | No                  | 10.1.0.4 // ssh 22            |
 | Kibana Interface  | Yes \(restricted\)  | Public IP of ELK // port 5601 |
 
+***
 
 ### Elk Configuration
 
@@ -170,6 +175,8 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ![Docker_PS](Diagrams/Docker_PS.png)
 
+***
+
 ### Target Machines and Beats
 This ELK server is configured to monitor the following machines:
 - List the IP addresses of the machines you are monitoring
@@ -186,6 +193,8 @@ We have installed the following Beats on these machines:
 These Beats allow us to collect the following information from each machine:
 - In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see.
 > - _Answer:_ Filebeat collect log data, events, and files then forwards them to a centralized area like Logstash. For example, Filebeat can collect wifi logs on the network and send these logs to Logstash for review. Metricbeat collects and ships various system and service metrics to a centralized area. The system memory or cpu are examples of these metrics.
+
+***
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
@@ -222,6 +231,8 @@ SSH into the control node and follow the steps below:
 > - _Answer:_ `http://[your.VM.IP]:5601/app/kibana`
 
 Provide the specific commands the user will need to run to download the playbook, update the files, etc.
+
+***
 
 ### Other Linux Command List :
 | COMMAND                                           | PURPOSE                                          |
