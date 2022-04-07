@@ -193,7 +193,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the [Elk Stack File](Ansible/elktest.yml) to `/etc/ansible`.
 - Update the [Ansible Hosts](Ansible/hosts) file to include the private IP address of the server.
-- Run the playbook, and navigate to the Kibana local host at `http://\[your.VM.IP\]:5601/app/kibana` to check that the installation worked as expected.
+- Run the playbook, and navigate to the Kibana local host at `http://[your.VM.IP]:5601/app/kibana` to check that the installation worked as expected.
 
 - Which file is the playbook? Where do you copy it?
 > - _Answer:_ The following two files are copied to the `/etc/ansible/` folder.
