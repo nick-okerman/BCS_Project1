@@ -168,7 +168,7 @@ The ELK playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![Docker_PS](Diagrams/Docker_PS.ong)
 
 ### Target Machines and Beats
 This ELK server is configured to monitor the following machines:
@@ -184,7 +184,7 @@ We have installed the following Beats on these machines:
 
 
 These Beats allow us to collect the following information from each machine:
-- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
+- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see.
 > - _Answer:_ Filebeat collect log data, events, and files then forwards them to a centralized area like Logstash. For example, Filebeat can collect wifi logs on the network and send these logs to Logstash for review. Metricbeat collects and ships various system and service metrics to a centralized area. The system memory or cpu are examples of these metrics.
 
 ### Using the Playbook
@@ -193,15 +193,49 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the [Elk Stack File](Ansible/elktest.yml) to `/etc/ansible`.
 - Update the [Ansible Hosts](Ansible/hosts) file to include the private IP address of the server.
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Run the playbook, and navigate to the Kibana local host at `http://\[your.VM.IP\]:5601/app/kibana` to check that the installation worked as expected.
 
-***
-***
-***
+- Which file is the playbook? Where do you copy it?
+> - _Answer:_ The following two files are copied to the `/etc/ansible/` folder.
+>    - [Elk Playbook](Ansible/elktest.yml)
+>    - [Filebeat & Metricbeat Playbook](Ansible/filebeat-playbook)
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- Which file do you update to make Ansible run the playbook on a specific machine?
+> - _Answer:_ [Host File](Ansible/hosts)
+
+- How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+>```yaml
+>[webservers]
+>#alpha.example.org
+>#beta.example.org
+>#192.168.1.100
+>#192.168.1.110
+>10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+>10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+>10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+>
+>[elk]
+>10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+>```
+
 - _Which URL do you navigate to in order to check that the ELK server is running?
+> - _Answer:_ `http://\[your.VM.IP\]:5601/app/kibana`
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+Provide the specific commands the user will need to run to download the playbook, update the files, etc.
+
+### Other Linux Command List :
+| COMMAND                                           | PURPOSE                                          |
+|---------------------------------------------------|--------------------------------------------------|
+| `sudo apt-get update` 				                    | Update all packages                              |         
+| `systemctl status docker`				                  | Status of the docker application                 |
+| `sudo apt install docker.io`                      | Installs the docker application                  |
+| `sudo docker run -ti cyberxsecurity/ansible bash` | Run and create a docker image                    |
+| `sudo docker start <image-name>`                  | Starts the specified image                       |
+| `sudo docker container list -a`                   | List all containers                              |
+| `sudo docker attach <image-name>`                 | ssh into the ansible container                   |
+| `ssh-keygen`                                      | Create a ssh key                                 |
+| `sudo cat /ssh/id_rsa.pub`                        | View the ssh key                                 |
+| `ssh ansibleuser@[WebVM-1_IP_Address]`            | Log into Web-1                                   |
+| `ssh ansibleuser@[WebVM-2_IP_Address]`            | Log into Web-2                                   |
+| `ssh ansibleuser@[WebVM-3_IP_Address]`            | Log into Web-3                                   |
+| `ssh ansibleuser@[ELK_Server_IP_Address]`         | Log into ELK Server                              |
