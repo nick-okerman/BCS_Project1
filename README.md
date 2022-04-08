@@ -1,7 +1,6 @@
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
-test 123
 
 [Network Topology _without_ ELK Stack](Diagrams/Network_Topology.png) \| [Network Topology _with_ ELK Stack](Diagrams/Network_Topology_ELK.png)
 
